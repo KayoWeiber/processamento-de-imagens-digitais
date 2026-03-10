@@ -1,0 +1,10 @@
+checa
+py -c "import cv2, numpy, matplotlib; print('OK', cv2.__version__)"
+
+pip upgrade
+py -m pip install --user --upgrade pip
+
+instala
+py -m pip install --user numpy matplotlib opencv-python
+
+
