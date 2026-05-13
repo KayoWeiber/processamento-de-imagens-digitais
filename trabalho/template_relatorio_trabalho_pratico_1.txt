@@ -1,0 +1,430 @@
+TEMPLATE PRONTO PARA O WORD - TRABALHO PRATICO 1
+
+Como usar:
+1. Preencha apenas os nomes dos integrantes.
+2. Escolha a imagem analisada ou copie as secoes das imagens que voce vai usar.
+3. Onde estiver escrito "[INSERIR IMAGEM...]", coloque a imagem no Word.
+4. O texto tecnico ja esta respondido. Ajuste apenas se quiser deixar mais pessoal.
+
+
+IDENTIFICACAO
+
+Nome dos integrantes:
+- Integrante 1:
+- Integrante 2:
+- Integrante 3:
+
+Disciplina:
+Processamento de Imagens
+
+Titulo:
+Trabalho Pratico 1 - Preparacao de Imagens para Segmentacao
+
+
+PROCESSAMENTOS APLICADOS
+
+As tecnicas foram aplicadas com base nos scripts disponibilizados nas aulas. Inicialmente, a imagem original foi lida e convertida para escala de cinza, pois as tecnicas de realce, suavizacao e deteccao de bordas foram trabalhadas sobre imagens monocromaticas.
+
+Depois foi aplicada a equalizacao de histograma, com o objetivo de melhorar a distribuicao dos niveis de intensidade e aumentar o contraste entre regioes claras e escuras. Em seguida, foram aplicados filtros de suavizacao: o filtro de media e o filtro Gaussiano. Esses filtros foram utilizados para reduzir pequenas variacoes locais de intensidade e diminuir ruido visual antes da analise de bordas.
+
+Tambem foi aplicado o filtro Sharpen, que tem como objetivo realcar detalhes e tornar transicoes de intensidade mais evidentes. Por fim, foram aplicados os operadores de borda Sobel, Prewitt, Laplaciano e Canny, permitindo comparar qual deles destacou melhor os contornos principais da imagem e qual deles gerou mais ruido ou falsas bordas.
+
+Ordem usada:
+1. Imagem original.
+2. Conversao para escala de cinza.
+3. Equalizacao de histograma.
+4. Filtro de media.
+5. Filtro Gaussiano.
+6. Filtro Sharpen.
+7. Sobel.
+8. Prewitt.
+9. Laplaciano.
+10. Canny.
+
+
+RESULTADOS VISUAIS
+
+[INSERIR IMAGEM COMPARATIVA AQUI]
+Use o arquivo:
+trabalho/scripts/NOME_DA_IMAGEM/resultados/comparativo_tecnicas.png
+
+[OPCIONAL: INSERIR HISTOGRAMA AQUI]
+Use o arquivo:
+trabalho/scripts/NOME_DA_IMAGEM/resultados/histograma_equalizacao.png
+
+A figura comparativa permite observar a diferenca entre a imagem original e os resultados obtidos apos cada tecnica. A comparacao visual e importante porque algumas tecnicas melhoram o contraste ou reduzem ruido, mas outras podem exagerar texturas e gerar bordas falsas.
+
+
+TEXTOS PRONTOS POR IMAGEM
+
+Use a secao correspondente a imagem que voce escolheu.
+
+
+IMAGEM 01 - 01_bolas_grama.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/01_bolas_grama/resultados/00_original.jpg
+
+A imagem escolhida apresenta bolas sobre um fundo de grama. Ela foi selecionada porque possui objetos circulares bem definidos, mas tambem apresenta um fundo com muita textura. A grama cria varias pequenas transicoes de intensidade, o que dificulta a deteccao de bordas e pode gerar ruido nos operadores.
+
+A imagem original apresenta excesso de detalhes no fundo, principalmente por causa da textura da grama. O contraste dos objetos principais e bom, especialmente nas bolas claras, mas o fundo gera muitas informacoes que nao fazem parte dos objetos de interesse.
+
+A equalizacao de histograma aumentou o contraste geral da imagem. Ela ajudou a destacar regioes claras das bolas, mas tambem intensificou a textura da grama. Por isso, apesar de melhorar a visibilidade dos objetos, tambem aumentou o risco de falsas bordas no fundo.
+
+A suavizacao ajudou a reduzir parte do ruido visual da grama. O filtro de media suavizou pequenas variacoes, mas deixou alguns contornos menos definidos. O filtro Gaussiano apresentou resultado mais equilibrado, pois reduziu parte da textura sem apagar completamente as bordas das bolas.
+
+Entre os operadores de borda, o Canny apresentou o melhor resultado visual para os contornos principais das bolas, pois produziu bordas mais finas e mais definidas. Sobel e Prewitt tambem destacaram os contornos circulares, mas mantiveram muitas respostas na textura da grama. O Laplaciano foi o operador que mais evidenciou ruido e falsas bordas no fundo.
+
+O Canny precisou de thresholds mais altos para evitar excesso de bordas na grama. Quando os valores sao baixos, a textura do fundo aparece em excesso. Quando os valores sao mais altos, os contornos das bolas ficam mais evidentes e parte do ruido do fundo e reduzida.
+
+Conclusao:
+Para a imagem das bolas na grama, o melhor resultado foi obtido apos a conversao para escala de cinza, seguida de suavizacao Gaussiana e aplicacao do Canny. A suavizacao ajudou a reduzir a interferencia da textura da grama, enquanto o Canny destacou melhor os contornos circulares. Antes de uma segmentacao completa, ainda seria necessario remover pequenas bordas falsas presentes no fundo.
+
+
+IMAGEM 02 - 02_brinquedo_pelucia.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/02_brinquedo_pelucia/resultados/00_original.jpg
+
+A imagem escolhida apresenta um brinquedo de pelucia com bordas suaves e textura de tecido. Ela foi selecionada porque o objeto principal nao possui contornos muito rigidos, o que torna a deteccao de bordas mais delicada.
+
+A imagem original apresenta contraste moderado e bordas suaves. A textura da pelucia pode gerar pequenas bordas internas, principalmente na regiao do pelo. A iluminacao e relativamente uniforme, mas as transicoes entre objeto e fundo nao sao muito fortes em todas as regioes.
+
+A equalizacao de histograma melhorou a separacao entre algumas regioes claras e escuras do brinquedo, mas tambem pode ter aumentado a textura do tecido. Isso faz com que detalhes internos sejam destacados junto com o contorno externo.
+
+A suavizacao foi importante nessa imagem, pois ajudou a reduzir pequenas variacoes causadas pela textura da pelucia. O filtro Gaussiano foi mais adequado que o filtro de media, porque preservou melhor a forma geral do brinquedo enquanto reduziu ruido fino.
+
+O Sharpen realcou detalhes e contornos, mas deve ser usado com cuidado nessa imagem, pois pode exagerar a textura do pelo. Entre os operadores de borda, o Canny produziu o resultado mais organizado, com contornos mais finos. Sobel e Prewitt detectaram bem algumas bordas, mas tambem responderam a detalhes internos. O Laplaciano gerou mais ruido visual por destacar variacoes pequenas da textura.
+
+O Canny precisou de thresholds mais baixos ou intermediarios, pois as bordas do brinquedo sao suaves. Se os thresholds forem muito altos, partes do contorno desaparecem. Se forem muito baixos, a textura interna da pelucia aparece em excesso.
+
+Conclusao:
+Para a imagem do brinquedo de pelucia, o melhor pipeline foi conversao para escala de cinza, suavizacao Gaussiana e Canny com thresholds moderados. A suavizacao reduziu a textura do tecido, e o Canny destacou o contorno principal com melhor organizacao. Antes da segmentacao, ainda seria necessario tratar partes do contorno que ficam fracas por causa das bordas suaves.
+
+
+IMAGEM 03 - 03_cachorro_jardim.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/03_cachorro_jardim/resultados/00_original.jpg
+
+A imagem escolhida apresenta um cachorro em um jardim, com pelos e fundo natural complexo. Ela foi selecionada porque possui muitos detalhes finos, tanto no animal quanto no fundo, o que dificulta separar o objeto principal do ambiente.
+
+A imagem original apresenta excesso de detalhes. Os pelos do cachorro e a vegetacao do fundo geram muitas transicoes de intensidade. Isso aumenta a chance de os operadores de borda detectarem regioes que nao representam o contorno principal do objeto.
+
+A equalizacao de histograma melhorou o contraste geral, principalmente em regioes do cachorro e do fundo. Porem, tambem destacou detalhes da vegetacao e dos pelos, aumentando a quantidade de informacoes que podem virar falsas bordas.
+
+A suavizacao ajudou a reduzir parte dos detalhes finos. O filtro de media reduziu ruido, mas apagou algumas transicoes importantes. O filtro Gaussiano foi mais adequado porque suavizou a imagem de forma mais natural e preservou melhor os contornos principais.
+
+O Sharpen aumentou a nitidez, mas tambem realcou os pelos e a vegetacao. Por isso, pode prejudicar a etapa de bordas quando o objetivo e segmentar apenas o contorno principal do cachorro. O Canny apresentou o melhor resultado visual quando comparado aos demais operadores, pois produziu bordas mais finas e controladas. O Laplaciano foi o que mais gerou ruido e falsas bordas.
+
+O Canny precisou de thresholds intermediarios ou mais altos. Com thresholds baixos, muitos detalhes do pelo e do fundo aparecem. Com thresholds mais altos, parte desse excesso e reduzido, mas algumas bordas do cachorro podem ficar incompletas.
+
+Conclusao:
+Para a imagem do cachorro no jardim, o melhor resultado foi obtido com conversao para escala de cinza, filtro Gaussiano e operador Canny. A suavizacao foi essencial para diminuir o excesso de detalhes do pelo e da vegetacao. Antes de uma segmentacao completa, ainda seria necessario aplicar alguma estrategia para separar melhor o cachorro do fundo natural.
+
+
+IMAGEM 04 - 04_praia_cidade.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/04_praia_cidade/resultados/00_original.jpg
+
+A imagem escolhida apresenta uma cena de praia com agua, areia, pessoas, predios e horizonte. Ela foi selecionada porque possui diferentes regioes com texturas e contrastes variados.
+
+A imagem original apresenta muitos elementos visuais. A linha do horizonte, os predios e a transicao entre mar e areia formam bordas importantes. Ja a agua e a espuma das ondas podem gerar varias bordas secundarias e falsas deteccoes.
+
+A equalizacao de histograma melhorou o contraste em algumas regioes, principalmente nas areas de predios e horizonte. Entretanto, tambem aumentou a presenca visual das texturas da agua e da areia, o que pode gerar excesso de bordas.
+
+A suavizacao ajudou a reduzir detalhes pequenos da agua e da areia. O filtro Gaussiano foi mais adequado porque diminuiu parte das variacoes sem destruir completamente as linhas principais da cena. O filtro de media tambem reduziu ruido, mas deixou a imagem mais borrada.
+
+O Sobel e o Prewitt destacaram bem as linhas verticais e horizontais dos predios e do horizonte. O Canny produziu contornos mais finos, mas pode gerar muitas bordas nas ondas se os thresholds forem baixos. O Laplaciano foi mais sensivel a pequenas variacoes e, por isso, gerou mais ruido visual.
+
+O Canny precisou de thresholds mais altos para evitar que a textura da agua dominasse o resultado. Com thresholds baixos, a espuma e as ondas aparecem em excesso. Com thresholds altos, o horizonte e os predios ficam mais relevantes.
+
+Conclusao:
+Para a imagem da praia com cidade, o melhor resultado foi obtido com conversao para escala de cinza, suavizacao Gaussiana e Canny com thresholds mais altos. Essa sequencia destacou melhor o horizonte e os predios, reduzindo parte das bordas falsas da agua e da areia. Para segmentacao, ainda seria necessario definir qual regiao da cena sera o alvo principal.
+
+
+IMAGEM 05 - 05_lago_parque.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/05_lago_parque/resultados/00_original.jpg
+
+A imagem escolhida apresenta um lago em um parque, com vegetacao, reflexos e areas de sombra. Ela foi selecionada porque possui iluminacao irregular e muitos detalhes naturais.
+
+A imagem original apresenta contraste variado. Algumas regioes sao escuras por causa das sombras, enquanto outras possuem reflexos na agua. A vegetacao tambem adiciona muitas pequenas bordas, o que pode dificultar a segmentacao.
+
+A equalizacao de histograma melhorou a visibilidade de regioes escuras, principalmente nas sombras e na vegetacao. Porem, tambem aumentou o contraste de folhas e reflexos, gerando mais detalhes que podem virar bordas falsas.
+
+A suavizacao ajudou a reduzir parte da textura da vegetacao e dos reflexos. O filtro Gaussiano foi mais eficiente para manter a estrutura geral da cena, enquanto o filtro de media deixou algumas regioes mais borradas.
+
+O Sharpen realcou contornos e detalhes, mas aumentou a presenca de folhas e reflexos. Entre os operadores de borda, o Canny apresentou resultado mais controlado, enquanto Sobel e Prewitt destacaram varias transicoes da vegetacao. O Laplaciano foi o mais sensivel aos detalhes e gerou mais ruido.
+
+O Canny precisou de thresholds intermediarios. Valores baixos destacam muitos reflexos e folhas. Valores altos reduzem falsas bordas, mas podem apagar contornos importantes da margem do lago e das construcoes.
+
+Conclusao:
+Para a imagem do lago no parque, o melhor resultado foi obtido com conversao para escala de cinza, filtro Gaussiano e Canny. A suavizacao reduziu parte da textura natural, e o Canny manteve as bordas principais mais organizadas. Antes da segmentacao, ainda seria necessario tratar reflexos e sombras, pois eles confundem os operadores de borda.
+
+
+IMAGEM 06 - 06_ferramentas_mesa.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/06_ferramentas_mesa/resultados/00_original.jpg
+
+A imagem escolhida apresenta ferramentas metalicas sobre uma mesa de madeira. Ela foi selecionada porque possui objetos com contornos bem definidos, diferenca clara entre objeto e fundo, sombras projetadas e reflexos nos metais. Esses elementos tornam a imagem adequada para testar tecnicas de preparacao para segmentacao, pois existe um objeto principal relativamente facil de identificar, mas tambem existem detalhes que podem confundir os operadores de borda.
+
+No script, a imagem foi carregada com OpenCV usando:
+
+img_color = cv2.imread(str(IMG_PATH))
+
+Em seguida, ela foi convertida para escala de cinza:
+
+img = cv2.cvtColor(img_color, cv2.COLOR_BGR2GRAY)
+
+Essa conversao foi necessaria porque as tecnicas aplicadas nas aulas, como equalizacao, suavizacao e deteccao de bordas, trabalham diretamente com niveis de intensidade. Ao remover a cor, a analise passa a depender apenas das variacoes de luminosidade. Para esta imagem, isso e adequado porque as ferramentas metalicas se destacam principalmente pelo contraste de intensidade em relacao a mesa, e nao apenas pela cor.
+
+A imagem original apresenta bom contraste entre as ferramentas e a mesa, principalmente nas bordas externas da chave e dos parafusos. Mesmo assim, existem sombras ao redor dos objetos e reflexos nas superficies metalicas. Esses reflexos criam variacoes internas de intensidade que podem ser interpretadas como bordas, mesmo quando nao representam o limite real entre ferramenta e fundo.
+
+A equalizacao de histograma foi aplicada com:
+
+eq = cv2.equalizeHist(img)
+
+Essa tecnica redistribui os niveis de cinza da imagem para melhorar o contraste. Na imagem das ferramentas, a equalizacao ajudou a separar melhor regioes claras e escuras, deixando mais evidentes as bordas dos objetos e algumas areas de sombra. O ponto negativo e que ela tambem pode intensificar reflexos metalicos e pequenas marcas da mesa, aumentando detalhes que podem virar falsas bordas.
+
+Para suavizacao, foram usados dois filtros:
+
+blur = cv2.blur(img, (3, 3))
+gauss = cv2.GaussianBlur(img, (5, 5), 0)
+
+O filtro de media usa uma mascara 3x3 e substitui cada pixel por uma media dos pixels vizinhos. Ele reduz pequenas variacoes, mas pode deixar os contornos um pouco menos nitidos. O filtro Gaussiano usa uma mascara 5x5 e da mais peso aos pixels proximos do centro, por isso suaviza de forma mais natural. Nesta imagem, o Gaussiano foi mais adequado porque reduziu pequenas variacoes da textura da mesa e dos reflexos sem apagar totalmente as bordas principais das ferramentas.
+
+O filtro Sharpen foi aplicado com o kernel:
+
+kernel = np.array([
+    [0, -1, 0],
+    [-1, 5, -1],
+    [0, -1, 0]
+])
+sharp = cv2.filter2D(img, -1, kernel)
+
+Esse kernel reforca o pixel central e subtrai parte dos vizinhos, aumentando a diferenca entre regioes proximas. Por isso, ele realca contornos e detalhes. Na imagem escolhida, o Sharpen foi util porque as ferramentas ja possuem bordas fortes, entao o realce tornou esses limites mais visiveis. Entretanto, a mesma tecnica tambem pode reforcar reflexos e pequenas marcas da superficie, criando detalhes que nao seriam desejados em uma segmentacao automatica.
+
+Para deteccao de bordas, o Sobel foi calculado nas direcoes horizontal e vertical:
+
+sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+mag = np.sqrt(sobelx**2 + sobely**2)
+
+O Sobel destacou bem as bordas das ferramentas porque mede variacoes de intensidade nas direcoes x e y. Ele teve bom desempenho nas linhas externas da chave e dos parafusos, mas tambem respondeu a sombras e reflexos.
+
+O Prewitt foi aplicado com os kernels:
+
+kernelx = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]], dtype=np.float32)
+kernely = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]], dtype=np.float32)
+
+Assim como o Sobel, o Prewitt detecta mudancas de intensidade nas direcoes horizontal e vertical. Ele tambem destacou os contornos principais, mas apresentou resposta um pouco menos refinada que o Canny. O Laplaciano foi calculado com:
+
+lap = cv2.Laplacian(img, cv2.CV_64F)
+
+O Laplaciano e mais sensivel a mudancas bruscas de intensidade em todas as direcoes. Por isso, nesta imagem ele gerou mais respostas em sombras, reflexos e pequenas marcas, aumentando a quantidade de falsas bordas.
+
+O Canny foi aplicado com thresholds mais altos:
+
+CANNY_BAIXO = 70
+CANNY_ALTO = 200
+edges = cv2.Canny(img, CANNY_BAIXO, CANNY_ALTO)
+
+Esses valores foram escolhidos porque a imagem ja possui bordas fortes. Se thresholds baixos fossem usados, sombras, reflexos e textura da mesa apareceriam em excesso. Com os valores 70 e 200, o resultado fica mais seletivo: os contornos principais das ferramentas permanecem visiveis, enquanto parte do ruido visual e reduzida. Por esse motivo, o Canny apresentou o melhor resultado visual entre os operadores testados, com bordas mais finas e melhor organizadas.
+
+De forma geral, a equalizacao melhorou o contraste, o Gaussiano ajudou a reduzir pequenas variacoes, o Sharpen reforcou os contornos metalicos e o Canny produziu a representacao de bordas mais adequada. Sobel e Prewitt tambem funcionaram bem, mas mantiveram mais respostas em regioes de sombra. O Laplaciano foi o operador que mais gerou ruido visual e falsas bordas.
+
+Conclusao:
+Para a imagem das ferramentas sobre a mesa, o melhor resultado foi obtido com conversao para escala de cinza, analise dos filtros de suavizacao e realce, e uso do operador Canny com thresholds 70 e 200. O filtro Gaussiano foi importante para reduzir pequenas variacoes, enquanto o Sharpen mostrou que os contornos metalicos podem ser reforcados quando necessario. O Canny produziu o resultado mais adequado para uma etapa posterior de segmentacao, pois manteve os contornos principais das ferramentas com menos interferencia da textura da mesa. Antes de uma segmentacao completa, ainda seria necessario reduzir falsas bordas causadas por sombras e reflexos internos dos metais.
+
+
+IMAGEM 07 - 07_flor_planta.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/07_flor_planta/resultados/00_original.jpg
+
+A imagem escolhida apresenta uma flor colorida sobre um fundo formado por folhas verdes. Ela foi selecionada porque possui um objeto principal bem definido visualmente, mas a separacao entre flor e fundo depende muito da cor. Isso torna a imagem interessante para o trabalho, pois mostra uma limitacao importante das tecnicas aplicadas apenas em escala de cinza.
+
+No script, a imagem foi carregada com:
+
+img_color = cv2.imread(str(IMG_PATH))
+
+Em seguida, foi feita a conversao para escala de cinza:
+
+img = cv2.cvtColor(img_color, cv2.COLOR_BGR2GRAY)
+
+Essa etapa foi necessaria porque os filtros e operadores de borda usados nas aulas trabalham sobre intensidades. Porem, para esta imagem, a conversao para cinza tem uma consequencia importante: parte da diferenca visual entre a flor e as folhas e perdida. Na imagem colorida, a flor se destaca pela cor rosa/lilas, enquanto o fundo e verde. Quando a imagem passa para tons de cinza, essa diferenca cromatica vira apenas diferenca de luminosidade, o que pode aproximar o objeto principal do fundo.
+
+A imagem original apresenta bom destaque de cor, mas tambem possui fundo com muitas folhas, nervuras e texturas. Essas regioes criam muitas pequenas variacoes de intensidade. Por isso, mesmo que a flor seja o objeto principal, os operadores de borda tambem tendem a detectar as folhas do fundo.
+
+A equalizacao de histograma foi aplicada com:
+
+eq = cv2.equalizeHist(img)
+
+O objetivo da equalizacao foi melhorar o contraste da imagem em tons de cinza. Ela ajudou a destacar algumas regioes da flor e das folhas, mas tambem aumentou a visibilidade das texturas do fundo. Como o fundo possui muitos detalhes naturais, a equalizacao pode prejudicar a segmentacao ao intensificar nervuras e bordas das folhas que nao pertencem ao objeto principal.
+
+Para reduzir pequenas variacoes, foram aplicados os filtros de suavizacao:
+
+blur = cv2.blur(img, (3, 3))
+gauss = cv2.GaussianBlur(img, (5, 5), 0)
+
+O filtro de media usa uma vizinhanca 3x3 e reduz variacoes locais calculando uma media dos pixels. Ele ajuda a diminuir ruido, mas pode borrar regioes delicadas da flor. O filtro Gaussiano usa uma mascara 5x5 e suaviza de forma mais equilibrada, dando maior peso aos pixels proximos do centro. Nesta imagem, o Gaussiano foi mais adequado porque reduziu parte da textura das folhas sem apagar totalmente a forma da flor.
+
+O filtro Sharpen foi aplicado com:
+
+kernel = np.array([
+    [0, -1, 0],
+    [-1, 5, -1],
+    [0, -1, 0]
+])
+sharp = cv2.filter2D(img, -1, kernel)
+
+Esse filtro realca detalhes e transicoes de intensidade. Na flor, ele pode ajudar a destacar as petalas, mas tambem reforca as folhas do fundo. Por isso, apesar de melhorar a nitidez, o Sharpen nao e necessariamente a melhor etapa antes da segmentacao, pois aumenta tambem as bordas indesejadas.
+
+O Sobel foi calculado nas direcoes x e y:
+
+sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+mag = np.sqrt(sobelx**2 + sobely**2)
+
+Ele destacou regioes de mudanca de intensidade, incluindo partes das petalas e muitas folhas. O Prewitt foi aplicado com kernels horizontais e verticais:
+
+kernelx = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]], dtype=np.float32)
+kernely = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]], dtype=np.float32)
+
+O Prewitt teve comportamento parecido com o Sobel, destacando contornos principais, mas tambem respondendo bastante ao fundo. O Laplaciano foi aplicado com:
+
+lap = cv2.Laplacian(img, cv2.CV_64F)
+
+Por ser muito sensivel a mudancas bruscas de intensidade, o Laplaciano gerou muitas respostas nas nervuras das folhas e nas texturas do fundo, sendo o operador com maior tendencia a produzir falsas bordas nesta imagem.
+
+O Canny foi aplicado com thresholds intermediarios:
+
+CANNY_BAIXO = 50
+CANNY_ALTO = 140
+edges = cv2.Canny(img, CANNY_BAIXO, CANNY_ALTO)
+
+Esses valores foram usados porque a flor possui bordas delicadas. Se os thresholds fossem muito altos, partes das petalas poderiam desaparecer. Se fossem muito baixos, as folhas do fundo apareceriam em excesso. Com 50 e 140, o Canny produziu um resultado mais organizado que Sobel, Prewitt e Laplaciano, mas ainda detectou algumas bordas do fundo.
+
+De forma geral, a equalizacao melhorou o contraste em tons de cinza, o Gaussiano foi a melhor suavizacao para reduzir detalhes do fundo, o Sharpen realcou a flor mas tambem reforcou folhas, e o Canny apresentou a melhor organizacao das bordas. Mesmo assim, esta imagem mostra que a cor seria muito importante para uma segmentacao futura.
+
+Conclusao:
+Para a imagem da flor, o melhor resultado foi obtido com conversao para escala de cinza, filtro Gaussiano e operador Canny com thresholds 50 e 140. O Gaussiano ajudou a reduzir a textura das folhas, e o Canny destacou melhor o contorno geral da flor. No entanto, o resultado ainda e limitado para segmentacao, pois a conversao para cinza remove uma informacao essencial: a diferenca de cor entre flor e fundo. Em uma etapa posterior, o uso de canais de cor seria recomendado para separar melhor a flor das folhas.
+
+
+IMAGEM 08 - 08_rua_dia.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/08_rua_dia/resultados/00_original.jpg
+
+A imagem escolhida apresenta uma rua durante o dia, com predios, arvores, carros, calcadas, sombras e linhas de perspectiva. Ela foi selecionada porque representa uma cena urbana complexa, com muitos objetos e grande quantidade de bordas. Diferente de uma imagem com apenas um objeto principal, esta cena possui varias regioes que podem ser consideradas importantes, o que torna a preparacao para segmentacao mais dificil.
+
+No script, a imagem foi carregada com:
+
+img_color = cv2.imread(str(IMG_PATH))
+
+Depois foi feita a conversao para escala de cinza:
+
+img = cv2.cvtColor(img_color, cv2.COLOR_BGR2GRAY)
+
+Essa conversao foi usada porque os operadores aplicados analisam variacoes de intensidade. Na cena urbana, isso permite destacar linhas de predios, carros, arvores e pista. O problema e que praticamente todos esses elementos possuem transicoes de intensidade, entao a imagem em cinza continua muito carregada de informacao.
+
+A imagem original apresenta excesso de detalhes. Fachadas, janelas, carros, troncos, folhas, sombras e faixas da rua criam muitas mudancas locais de intensidade. Isso torna a deteccao de bordas mais complexa, porque os operadores nao distinguem automaticamente o que e objeto principal e o que e detalhe secundario.
+
+A equalizacao de histograma foi aplicada com:
+
+eq = cv2.equalizeHist(img)
+
+Ela aumentou o contraste geral da imagem, principalmente em regioes de sombra, fachadas e partes da rua. Esse aumento de contraste ajuda a visualizar melhor algumas estruturas urbanas, mas tambem intensifica detalhes pequenos, como folhas das arvores, texturas dos predios e contornos de carros. Por isso, a equalizacao melhora a visibilidade, mas pode deixar o resultado de bordas mais poluido.
+
+Para suavizacao, foram aplicados:
+
+blur = cv2.blur(img, (3, 3))
+gauss = cv2.GaussianBlur(img, (5, 5), 0)
+
+O filtro de media reduz pequenas variacoes usando uma mascara 3x3, mas pode borrar linhas finas da cena, como contornos de carros e detalhes de predios. O filtro Gaussiano usa mascara 5x5 e suaviza de maneira mais gradual. Nesta imagem, o Gaussiano foi mais adequado porque reduziu parte do ruido fino das arvores e fachadas sem eliminar completamente as linhas principais da perspectiva urbana.
+
+O Sharpen foi aplicado com:
+
+kernel = np.array([
+    [0, -1, 0],
+    [-1, 5, -1],
+    [0, -1, 0]
+])
+sharp = cv2.filter2D(img, -1, kernel)
+
+Esse filtro realca bordas e detalhes. Na imagem da rua, ele destacou melhor linhas dos predios, carros e limites da pista. Entretanto, como a cena ja possui muitos detalhes, o Sharpen tambem aumentou informacoes irrelevantes, como folhas, texturas de fachada e pequenas sombras. Por isso, seu uso deve ser analisado com cuidado antes de uma etapa de segmentacao.
+
+O Sobel foi aplicado nas direcoes horizontal e vertical:
+
+sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+mag = np.sqrt(sobelx**2 + sobely**2)
+
+Ele destacou bem linhas verticais dos predios, bordas dos carros e algumas linhas horizontais da rua. O Prewitt foi aplicado com:
+
+kernelx = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]], dtype=np.float32)
+kernely = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]], dtype=np.float32)
+
+O Prewitt tambem destacou direcoes horizontais e verticais, com comportamento semelhante ao Sobel. Em cenas urbanas, esses operadores sao uteis porque ha muitas estruturas retas, como predios, janelas e ruas. Mesmo assim, ambos mantiveram muitas respostas em regioes secundarias.
+
+O Laplaciano foi calculado com:
+
+lap = cv2.Laplacian(img, cv2.CV_64F)
+
+Como ele responde a mudancas bruscas em todas as direcoes, gerou muita informacao na imagem da rua. Ele destacou bordas principais, mas tambem criou muitas falsas bordas em arvores, sombras, fachadas e texturas. Por isso, foi o operador menos adequado para um resultado limpo nessa cena.
+
+O Canny foi aplicado com thresholds altos:
+
+CANNY_BAIXO = 80
+CANNY_ALTO = 200
+edges = cv2.Canny(img, CANNY_BAIXO, CANNY_ALTO)
+
+Esses valores foram usados porque a imagem possui excesso de detalhes. Se os thresholds fossem baixos, praticamente toda a cena geraria bordas, deixando o resultado muito poluido. Com 80 e 200, o Canny fica mais seletivo, preservando bordas mais fortes, como predios, carros e linhas da rua, e reduzindo parte das bordas fracas de folhas, sombras e texturas.
+
+De forma geral, a equalizacao melhorou o contraste, mas aumentou a quantidade de detalhes visiveis. A suavizacao Gaussiana foi importante para controlar parte desse excesso. Sobel e Prewitt funcionaram bem para estruturas retas, mas ainda produziram muitas respostas. O Laplaciano foi muito sensivel ao ruido visual. O Canny, com thresholds mais altos, apresentou o melhor equilibrio entre preservacao das bordas principais e reducao de falsas bordas.
+
+Conclusao:
+Para a imagem da rua durante o dia, o melhor resultado foi obtido com conversao para escala de cinza, filtro Gaussiano e operador Canny com thresholds 80 e 200. A cena urbana possui muitos objetos e muitas bordas, por isso a suavizacao e o ajuste dos thresholds foram essenciais para evitar excesso de informacao. O resultado final serve como preparacao para segmentacao, mas ainda seria necessario definir um alvo especifico, como carros, pista, predios ou arvores, pois a imagem contem muitos elementos diferentes competindo entre si.
+
+
+IMAGEM 09 - 09_cidade_noite.jpg
+
+[INSERIR IMAGEM ORIGINAL AQUI]
+Arquivo: trabalho/scripts/09_cidade_noite/resultados/00_original.jpg
+
+A imagem escolhida apresenta uma cidade a noite, com regioes escuras, pontos de luz e reflexos na agua. Ela foi selecionada porque possui baixo contraste em varias regioes e iluminacao irregular.
+
+A imagem original apresenta muitas regioes escuras e pontos de luz muito intensos. Essa diferenca dificulta o processamento, pois partes da imagem quase nao possuem informacao visivel, enquanto as luzes criam bordas fortes e reflexos.
+
+A equalizacao de histograma melhorou a visualizacao de regioes escuras e aumentou o contraste geral. No entanto, tambem pode ter ampliado ruido nas areas escuras e destacado reflexos que nao representam necessariamente contornos de objetos.
+
+A suavizacao ajudou a reduzir pequenos ruidos em regioes escuras e reflexos. O filtro Gaussiano foi mais adequado porque suavizou pontos de ruido sem apagar completamente as estruturas principais da ponte e dos predios.
+
+O Sharpen aumentou a nitidez das luzes e estruturas, mas tambem pode exagerar pontos brilhantes e ruido. O Canny apresentou o melhor resultado visual quando os thresholds foram ajustados para a imagem escura. Sobel e Prewitt destacaram algumas estruturas, mas tambem responderam a reflexos. O Laplaciano foi mais sensivel ao ruido e aos pontos luminosos.
+
+O Canny precisou de thresholds mais baixos que em imagens claras, porque muitas bordas relevantes estao em regioes escuras. Se os thresholds forem altos demais, parte da ponte e dos predios desaparece. Se forem baixos demais, os reflexos e ruidos aparecem em excesso.
+
+Conclusao:
+Para a imagem da cidade a noite, o melhor resultado foi obtido com conversao para escala de cinza, equalizacao de histograma, filtro Gaussiano e Canny com thresholds mais baixos. A equalizacao ajudou a revelar regioes escuras, e a suavizacao reduziu parte do ruido. Antes de uma segmentacao completa, ainda seria necessario controlar reflexos e pontos de luz muito intensos.
+
+
+MODELO DE CONCLUSAO GERAL
+
+Para a imagem analisada, o melhor resultado foi obtido apos a conversao para escala de cinza, seguida de uma etapa de suavizacao e da aplicacao do operador Canny. A suavizacao foi importante porque reduziu ruido e pequenas variacoes de intensidade que poderiam gerar falsas bordas. O Canny produziu o resultado mais adequado porque apresentou bordas mais finas e melhor organizadas em comparacao com Sobel, Prewitt e Laplaciano.
+
+Mesmo assim, o resultado ainda nao e uma segmentacao completa. Ele representa uma preparacao para a segmentacao, pois destaca contornos importantes da imagem. Para uma etapa posterior, ainda seria necessario ajustar melhor os thresholds, remover pequenas bordas falsas e, dependendo da imagem, combinar a analise de intensidade com outras informacoes, como cor ou regioes de interesse.
+
+
+CHECKLIST FINAL PARA O WORD
+
+[ ] Preencher nomes dos integrantes.
+[ ] Inserir a imagem original escolhida.
+[ ] Inserir a figura comparativa gerada pelo script.
+[ ] Opcionalmente inserir o histograma.
+[ ] Copiar o texto da imagem analisada.
+[ ] Conferir se a conclusao cita o melhor pipeline.
+[ ] Exportar o Word para PDF.
